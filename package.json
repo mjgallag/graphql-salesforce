@@ -1,0 +1,14 @@
+{
+  "name": "graphql-salesforce",
+  "version": "0.0.1",
+  "description": "GraphQL for Salesforce",
+  "keywords": [
+    "graphql",
+    "salesforce"
+  ],
+  "homepage": "https://github.com/mjgallag/graphql-salesforce#readme",
+  "bugs": "https://github.com/mjgallag/graphql-salesforce/issues",
+  "license": "MIT",
+  "author": "Michael J Gallagher <mjgallag@gmail.com>",
+  "repository": "mjgallag/graphql-salesforce"
+}
