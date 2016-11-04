@@ -1,6 +1,6 @@
 {
   "name": "graphql-salesforce",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GraphQL for Salesforce",
   "keywords": [
     "graphql",
@@ -10,5 +10,12 @@
   "bugs": "https://github.com/mjgallag/graphql-salesforce/issues",
   "license": "MIT",
   "author": "Michael J Gallagher <mjgallag@gmail.com>",
-  "repository": "mjgallag/graphql-salesforce"
+  "main": "lib/index.js",
+  "repository": "mjgallag/graphql-salesforce",
+  "scripts": {
+    "prepublish": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.0"
+  }
 }

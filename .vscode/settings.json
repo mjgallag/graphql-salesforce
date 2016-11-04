@@ -1,0 +1,13 @@
+{
+  "editor.rulers": [
+    100
+  ],
+  "editor.tabSize": 2,
+  "editor.wrappingColumn": 100,
+  "files.exclude": {
+    "lib": true,
+    "node_modules": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
