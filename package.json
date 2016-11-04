@@ -1,6 +1,6 @@
 {
   "name": "graphql-salesforce",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "GraphQL for Salesforce",
   "keywords": [
     "graphql",
@@ -13,9 +13,10 @@
   "main": "lib/index.js",
   "repository": "mjgallag/graphql-salesforce",
   "scripts": {
-    "prepublish": "tsc"
+    "prepublish": "rimraf lib && tsc"
   },
   "devDependencies": {
+    "rimraf": "^2.0.0",
     "typescript": "^2.0.0"
   }
 }
