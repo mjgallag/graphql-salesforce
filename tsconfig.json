@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "lib"
+    "outDir": "lib",
+    "sourceMap": true
   },
   "files": [
     "src/index.ts"
