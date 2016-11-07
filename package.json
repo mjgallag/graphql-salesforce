@@ -13,7 +13,8 @@
   "main": "lib/index.js",
   "repository": "mjgallag/graphql-salesforce",
   "scripts": {
-    "prepublish": "rimraf lib && tsc"
+    "prepublish": "rimraf lib && tsc",
+    "watch": "tsc -w"
   },
   "devDependencies": {
     "rimraf": "^2.0.0",
