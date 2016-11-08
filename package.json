@@ -11,6 +11,7 @@
   "license": "MIT",
   "author": "Michael J Gallagher <mjgallag@gmail.com>",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": "mjgallag/graphql-salesforce",
   "scripts": {
     "prepublish": "rimraf lib && tsc",
