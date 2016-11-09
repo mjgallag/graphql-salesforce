@@ -1,3 +1,3 @@
-export function helloWorld(): void {
-  console.log('Hello World!');
-};
+import GraphQLSalesforce from './GraphQLSalesforce';
+
+export default GraphQLSalesforce;
