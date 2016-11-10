@@ -4,6 +4,7 @@
     "module": "commonjs",
     "outDir": "lib",
     "sourceMap": true,
+    "strictNullChecks": true,
     "target": "es6"
   },
   "files": [
