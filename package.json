@@ -17,6 +17,9 @@
     "prepublish": "rimraf lib && tsc",
     "watch": "tsc -w"
   },
+  "dependencies": {
+    "jsforce": "^1.7.1"
+  },
   "devDependencies": {
     "rimraf": "^2.5.4",
     "typescript": "^2.0.9"
