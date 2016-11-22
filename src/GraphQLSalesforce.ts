@@ -10,24 +10,29 @@ export default class GraphQLSalesforce {
   private static connection = new Connection();
 
   static async makeSchema(username: string, password: string): Promise<GraphQLSchema> {
+    const sObjectDescribePromises: Promise<any>[] = [];
+
     await GraphQLSalesforce.connection.login(username, password);
+    for (const sObject of (await GraphQLSalesforce.connection.describeGlobal()).sobjects)
+      sObjectDescribePromises.push(GraphQLSalesforce.connection.sobject(sObject.name).describe());
+    await Promise.all(sObjectDescribePromises);
 
     return new GraphQLSchema({
       query: new GraphQLObjectType({
         name: 'Salesforce',
-        fields: await GraphQLSalesforce.makeObjectTypes()
+        fields: GraphQLSalesforce.makeObjectTypes()
       })
     });
   }
 
-  private static async makeObjectTypes(): Promise<GraphQLFieldConfigMap<any>> {
+  private static makeObjectTypes(): GraphQLFieldConfigMap<any> {
     const objectTypes: GraphQLFieldConfigMap<any> = {};
 
-    for (const sObject of (await GraphQLSalesforce.connection.describeGlobal()).sobjects)
+    for (const sObject of GraphQLSalesforce.connection.describeGlobal$().sobjects)
       objectTypes[sObject.name] = {
         type: new GraphQLObjectType({
           name: sObject.name,
-          fields: await GraphQLSalesforce.makeScalarTypes(sObject.name)
+          fields: GraphQLSalesforce.makeScalarTypes(sObject.name)
         }),
         description: sObject.label
       };
@@ -35,10 +40,10 @@ export default class GraphQLSalesforce {
     return objectTypes;
   }
 
-  private static async makeScalarTypes(sObject: string): Promise<GraphQLFieldConfigMap<any>> {
+  private static makeScalarTypes(sObject: string): GraphQLFieldConfigMap<any> {
     const scalarTypes: GraphQLFieldConfigMap<any> = {};
 
-    for (const field of (await GraphQLSalesforce.connection.sobject(sObject).describe()).fields)
+    for (const field of GraphQLSalesforce.connection.sobject(sObject).describe$().fields)
       scalarTypes[field.name] = {
         type: GraphQLString,
         description: field.label
