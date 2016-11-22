@@ -21,8 +21,12 @@
     "jsforce": "^1.7.1"
   },
   "devDependencies": {
+    "@types/graphql": "^0.7.3",
     "rimraf": "^2.5.4",
     "typescript": "^2.0.10"
+  },
+  "peerDependencies": {
+    "graphql": "^0.7.2"
   },
   "engines": {
     "node": ">=4"
